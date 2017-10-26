@@ -13,19 +13,33 @@
   <body>
     <div class="container">
       <div class="row mt-2">
-        <div class="col"><h3>Giph Me!</h3></div>
+        <div class="col"><h3>Stock Search</h3></div>
       </div>
 
       <div class="form-group mt-3">
-        <label for="search-term">Enter a search term:</label>
+        <label for="search-term">Enter a search term</label>
         <input type="text" class="form-control" id="search-term">
       </div>
 
-      <div class="form-group">
-        <button id="search-button" class="btn btn-primary" disabled>Search Giphy!</button>
+      <div class="d-flex align-items-center justify-content-start">
+        <div class="form-group">
+          <button id="search-button" class="btn btn-primary" disabled>Search</button>
+        </div>
+        <div id="radio-buttons" class="form-check-incline">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="stockRadio" value="TIME_SERIES_" checked>
+            Stock
+          </label>
+        <!-- </div>
+        <div class="form-check-incline"> -->
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="cryptoRadio" value="DIGITAL_CURRENCY_">
+            Crypto Currency
+          </label>
+        </div>
       </div>
 
-      <div class="row image-result-container">
+      <div class="graph" style="width:600px;height:250px;">
       </div>
     </div>
 
@@ -40,7 +54,10 @@
       integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
       crossorigin="anonymous"></script>
 
-    <script src="giphy-sample.js"></script>
+    <script src="quantl-api.js"></script>
+    <script src="plotly-latest.min.js"></script>
     <script>window.GiphySearchController.init()</script>
+
+
   </body>
 </html>
