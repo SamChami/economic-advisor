@@ -11,6 +11,16 @@
   </head>
 
   <body>
+    <style>
+      .flexbox {
+      padding-left: 5px;
+      padding-right: 5px;
+      }
+      .form-check-label {
+        padding-left: 30px;
+        padding-right: 30px;
+      }
+    </style>
     <div class="container">
       <div class="row mt-2">
         <div class="col"><h3>Stock Search</h3></div>
@@ -20,22 +30,28 @@
         <label for="search-term">Enter a search term</label>
         <input type="text" class="form-control" id="search-term">
       </div>
-
-      <div class="d-flex align-items-center justify-content-start">
-        <div class="form-group">
+      <div class="d-flex justify-content-start align-items-center">
+        <div class="form-group flexbox">
           <button id="search-button" class="btn btn-primary" disabled>Search</button>
         </div>
-        <div id="radio-buttons" class="form-check-incline">
+        <div class="form-check flexbox" id="radio-buttons">
           <label class="form-check-label">
             <input class="form-check-input" type="radio" name="inlineRadioOptions" id="stockRadio" value="TIME_SERIES_" checked>
             Stock
           </label>
         <!-- </div>
-        <div class="form-check-incline"> -->
+        <div id="radio-buttons" class="form-check flexbox"> -->
           <label class="form-check-label">
             <input class="form-check-input" type="radio" name="inlineRadioOptions" id="cryptoRadio" value="DIGITAL_CURRENCY_">
             Crypto Currency
           </label>
+        </div>
+        <div class="form-group flexbox">
+          <select class="form-control" id="exampleFormControlSelect1">
+            <option value="DAILY">Daily</option>
+            <option value="WEEKLY">Weekly</option>
+            <option value="MONTHLY">Monthly</option>
+          </select>
         </div>
       </div>
 
@@ -56,8 +72,7 @@
 
     <script src="quantl-api.js"></script>
     <script src="plotly-latest.min.js"></script>
-    <script>window.GiphySearchController.init()</script>
-
+    <script>window.AlphaSearchController.init()</script>
 
   </body>
 </html>

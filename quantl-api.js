@@ -1,7 +1,7 @@
 "use strict";
 
 (() => {
-    window.QuantlStockSearch = {
+    window.AlphaSearchController = {
         init: () => {
             let searchButton = $("#search-button");
             let searchParam = $("#radio-buttons radio:checked" + "DAILY");
@@ -10,8 +10,7 @@
             let url;
             // API Keys: ZJF5RAKQ4SUSZMR4
             searchButton.click(() => {
-                url = `https://www.alphavantage.co/query?outputsize=compact&apikey=ZJF5RAKQ4SUSZMR4&function=
-                ${searchParam.val()}&symbol=${searchTerm.val()}`;
+                url = `https://www.alphavantage.co/query?outputsize=compact&apikey=ZJF5RAKQ4SUSZMR4&function=${searchParam.val()}&symbol=${searchTerm.val()}`;
                 $.getJSON(url).done(results => {
                     results
                     var data = {
@@ -25,8 +24,9 @@
 
 //VERY VERY BROKEN
                     resultGraph.empty().append(
-                      Plotly.newPlot('graph', data);
-                });
+                    )
+                    //  Plotly.newPlot('graph', data);
+                })
             });
             searchTerm.bind("input", () => searchButton.prop("disabled", !searchTerm.val()));
         }
