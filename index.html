@@ -8,6 +8,8 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
       integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
   </head>
 
   <body>
@@ -55,7 +57,7 @@
         </div>
       </div>
 
-      <div class="graph" style="width:600px;height:250px;">
+      <div id="graph" style="width:600px;height:250px;">
       </div>
     </div>
 
@@ -71,7 +73,6 @@
       crossorigin="anonymous"></script>
 
     <script src="quantl-api.js"></script>
-    <script src="plotly-latest.min.js"></script>
     <script>window.AlphaSearchController.init()</script>
 
   </body>
