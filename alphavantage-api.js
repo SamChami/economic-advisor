@@ -3,9 +3,10 @@
 (() => {
     window.AlphaSearchController = {
         init: () => {
-            let searchButton = $("#search-button");
+            let searchButton = $("#graph-button");
             let searchTerm = $("#search-term");
-            let resultGraph = $(".graph");
+            let resultGraph = $("#graph");
+            let currencyButton = $("#currency-button");
             let url;
             // API Keys: ZJF5RAKQ4SUSZMR4
             searchButton.click(() => {
@@ -34,6 +35,16 @@
                     // resultGraph.empty().append();
                 });
             });
+            currencyButton.click(() => {
+              let dropdown1 = $('#currency_drop2 :selected');
+              let dropdown2 = $('#currency_drop2 :selected');
+              url = `https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=${dropdown1.val()}&to_currency=${dropdown2.val()}&apikey=ZJF5RAKQ4SUSZMR4`
+              $.getJSON(url).done(results => {
+//UNFINISHED
+              })
+            })
+
+
             searchTerm.bind("input", () => searchButton.prop("disabled", !searchTerm.val()));
         }
     };
