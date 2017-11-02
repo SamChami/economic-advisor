@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Stock and Crypto Currency Searcher</title>
+    <title>Stock and Crypto Currency Helper</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
       integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
@@ -24,7 +24,7 @@
     </style>
     <div class="container">
       <div class="row mt-2">
-        <div class="col"><h3>Just Financing Things</h3></div>
+        <div class="col"><h3>Financial Helper</h3></div>
       </div>
 
       <div class="form-group mt-3">
@@ -47,9 +47,9 @@
         </div>
         <div class="form-group flexbox">
           <select class="form-control" id="FormControlSelect">
-            <option value="DAILY">Daily</option>
-            <option value="WEEKLY">Weekly</option>
-            <option value="MONTHLY">Monthly</option>
+            <option value="DAILY">Daily Close Prices</option>
+            <option value="WEEKLY">Weekly Close Prices</option>
+            <option value="MONTHLY">Monthly Close Prices</option>
           </select>
         </div>
       </div>
@@ -57,6 +57,8 @@
       <div id="graph" style="width:900px;height:250px;">
       </div>
     </div>
+
+    <hr>
 
     <div class="container">
       <h4>
@@ -95,6 +97,7 @@
             <option value="XRP">Ripple</option>
             <option value="DOGE">Dogecoin</option>
       </select>
+       to
       <select name="currency_code2" id="currency_drop2">
       		  <option value="AUD">Australian Dollar</option>
       		  <option value="BRL">Brazilian Real </option>

@@ -30,6 +30,7 @@
                             type: 'scatter'
                         }
                     ];
+                    // This is not defined because Plotly.js is not loaded from HTML yet
                     Plotly.newPlot('graph', data);
                 });
             });
