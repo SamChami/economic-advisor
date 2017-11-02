@@ -7,6 +7,7 @@
             let searchTerm = $("#search-term");
             let resultGraph = $("#graph");
             let currencyButton = $("#currency-button");
+            let currencyHolder = $("#currency-spot")
             let url;
             // API Keys: ZJF5RAKQ4SUSZMR4
             searchButton.click(() => {
@@ -36,14 +37,13 @@
                 });
             });
             currencyButton.click(() => {
-              let dropdown1 = $('#currency_drop2 :selected');
-              let dropdown2 = $('#currency_drop2 :selected');
-              url = `https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=${dropdown1.val()}&to_currency=${dropdown2.val()}&apikey=ZJF5RAKQ4SUSZMR4`
-              $.getJSON(url).done(results => {
-//UNFINISHED
-              })
-            })
-
+                const dropdown1 = $('#currency_drop1 :selected');
+                const dropdown2 = $('#currency_drop2 :selected');
+                url = `https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=${dropdown1.val()}&to_currency=${dropdown2.val()}&apikey=ZJF5RAKQ4SUSZMR4`;
+                $.getJSON(url).done(results => currencyHolder.empty().append(
+                  "1 " + results['Realtime Currency Exchange Rate']['2. From_Currency Name'] + " is equal to " + results['Realtime Currency Exchange Rate']['5. Exchange Rate'] + ' ' + results['Realtime Currency Exchange Rate']['4. To_Currency Name']
+                ))
+            });
 
             searchTerm.bind("input", () => searchButton.prop("disabled", !searchTerm.val()));
         }
