@@ -7,7 +7,7 @@
             let searchTerm = $("#search-term");
             let resultGraph = $("#graph");
             let currencyButton = $("#currency-button");
-            let currencyHolder = $("#currency-spot")
+            let currencyHolder = $("#currency-spot");
             let url;
             // API Keys: ZJF5RAKQ4SUSZMR4
             searchButton.click(() => {
@@ -29,9 +29,7 @@
                             type: 'scatter'
                         }
                     ];
-                    resultGraph.empty().append(
-                    //Show Open and Close Price of Today
-                   )
+
                     Plotly.newPlot('graph', data)
                     // resultGraph.empty().append();
                 });
