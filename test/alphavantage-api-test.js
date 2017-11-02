@@ -55,32 +55,20 @@ describe("Alpha search example", () => {
             jasmine.Ajax.uninstall();
         });
 
-        it("should trigger a Giphy search when the search button is clicked", () => {
-            expect(request.url).toBe("https://www.alphavantage.co/query?outputsize=compact&apikey=ZJF5RAKQ4SUSZMR4&function=TIME_SERIES_DAILY&symbol=fb");
+        it("should trigger a Stock/Crypto search when the search button is clicked", () => {
+            expect(request.url).toBe(`https://www.alphavantage.co/query
+?outputsize=compact&apikey=ZJF5RAKQ4SUSZMR4&function=TIME_SERIES_DAILY&symbol=fb`);
         });
 
         it("should populate the graph container when search results arrive", () => {
             expect($("#graph").children().length).toBe(0);
 
             // Needs to check if graph is populated and with what
+            request.respondWith({
+                status: 200,
+            });
 
-            // request.respondWith({
-            //     status: 200,
-            //     responseText: JSON.stringify({
-            //         data: [{
-            //             source_tld: "tumblr.com",
-            //             images: {
-            //                 fixed_width: {
-            //                     url: "http://media2.giphy.com/media/FiGiRei2ICzzG/200w.gif"
-            //                 }
-            //             }
-            //         }]
-            //     })
-            // });
-
-            expect($(".image-result-container").children().length).toBe(1);
-            // We can go even further by examining the resulting element(s) and expecting their content to match the
-            // mock response, but we will leave this as "further work" for now.
+            expect($("#graph").children().length).toBe(1);
         });
     });
 });
