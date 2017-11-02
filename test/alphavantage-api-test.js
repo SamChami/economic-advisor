@@ -1,8 +1,8 @@
-describe("Giphy search example", () => {
+describe("Alpha search example", () => {
     beforeEach(() => {
         fixture.setBase("test");
         fixture.load("search.fixture.html");
-        window.GiphySearchController.init();
+        window.AlphaSearchController.init();
     });
 
     afterEach(() => {
@@ -45,7 +45,7 @@ describe("Giphy search example", () => {
         beforeEach(() => {
             jasmine.Ajax.install();
 
-            $("#search-term").val("hello");
+            $("#search-term").val("fb");
             $("#search-button").click();
 
             request = jasmine.Ajax.requests.mostRecent();
@@ -56,27 +56,27 @@ describe("Giphy search example", () => {
         });
 
         it("should trigger a Giphy search when the search button is clicked", () => {
-            expect(request.url).toBe("http://api.giphy.com/v1/gifs/search?rating=pg-13&q=hello&api_key=dc6zaTOxFJmzC");
+            expect(request.url).toBe("https://www.alphavantage.co/query?outputsize=compact&apikey=ZJF5RAKQ4SUSZMR4&function=TIME_SERIES_DAILY&symbol=fb");
         });
 
-        it("should populate the image container when search results arrive", () => {
-            expect($(".image-result-container").children().length).toBe(0);
+        it("should populate the graph container when search results arrive", () => {
+            expect($("#graph").children().length).toBe(0);
 
-            // To manage size, we supply a mock response that contains _only_ what the app will need. This does mean
-            // that we need to revise the mock response if our app starts using more (or different) data.
-            request.respondWith({
-                status: 200,
-                responseText: JSON.stringify({
-                    data: [{
-                        source_tld: "tumblr.com",
-                        images: {
-                            fixed_width: {
-                                url: "http://media2.giphy.com/media/FiGiRei2ICzzG/200w.gif"
-                            }
-                        }
-                    }]
-                })
-            });
+            // Needs to check if graph is populated and with what
+
+            // request.respondWith({
+            //     status: 200,
+            //     responseText: JSON.stringify({
+            //         data: [{
+            //             source_tld: "tumblr.com",
+            //             images: {
+            //                 fixed_width: {
+            //                     url: "http://media2.giphy.com/media/FiGiRei2ICzzG/200w.gif"
+            //                 }
+            //             }
+            //         }]
+            //     })
+            // });
 
             expect($(".image-result-container").children().length).toBe(1);
             // We can go even further by examining the resulting element(s) and expecting their content to match the

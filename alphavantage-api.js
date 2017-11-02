@@ -35,7 +35,7 @@
                         ];
                         resultGraph.empty();
                         Plotly.newPlot('graph', data);
-                        // This is not defined because Plotly.js is not loaded from HTML yet
+                        // This is not defined because Plotly.js is not loaded from HTML yet.
                     } else {
                         resultGraph.empty().append("Error! Please Enter a Correct Ticker.");
                     }
