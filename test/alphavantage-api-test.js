@@ -14,7 +14,7 @@ describe("Alpha search example", () => {
     });
 
     it("should start with a disabled search button", () => {
-        expect($("#search-button").prop("disabled")).toBe(true);
+        expect($("#graph-button").prop("disabled")).toBe(true);
     });
 
     describe("search button", () => {
@@ -23,12 +23,10 @@ describe("Alpha search example", () => {
 
         beforeEach(() => {
             searchTerm = $("#search-term");
-            searchButton = $("#search-button");
+            searchButton = $("#graph-button");
         });
 
         it("should be enabled when the search field is not blank", () => {
-            // Programmatic changes to elements do not trigger events on their own, so in unit tests
-            // we need to trigger those programmatically as well.
             searchTerm.val("i can haz unit tests").trigger("input");
             expect(searchButton.prop("disabled")).toBe(false);
         });
@@ -46,7 +44,9 @@ describe("Alpha search example", () => {
             jasmine.Ajax.install();
 
             $("#search-term").val("fb");
-            $("#search-button").click();
+            $("input[name='radio-group']:checked").val();
+            $('#FormControlSelect :selected').val();
+            $("#graph-button").click();
 
             request = jasmine.Ajax.requests.mostRecent();
         });
@@ -66,7 +66,7 @@ describe("Alpha search example", () => {
             // Needs to check if graph is populated and with what
             request.respondWith({
                 status: 200,
-            });
+            }).toBe(true);
 
             expect($("#graph").children().length).toBe(1);
         });

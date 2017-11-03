@@ -44,16 +44,18 @@
             });
             currencyButton.click(() => {
                 const currencyVal = $("#currency_amount").val() > 0 ? $("#currency_amount").val() : 1;
-                const dropdown1 = $('#currency_drop1 :selected');
-                const dropdown2 = $('#currency_drop2 :selected');
+                const dropdown1 = $('#currency_drop1 :selected').val();
+                const dropdown2 = $('#currency_drop2 :selected').val();
                 url = `https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE
-&from_currency=${dropdown1.val()}&to_currency=${dropdown2.val()}&apikey=ZJF5RAKQ4SUSZMR4`;
+&from_currency=${dropdown1}&to_currency=${dropdown2}&apikey=ZJF5RAKQ4SUSZMR4`;
                 $.getJSON(url).done(results => currencyHolder.empty().append(
-                    currencyVal + " " + results['Realtime Currency Exchange Rate']['2. From_Currency Name'] +
-                    " is equal to " + currencyVal * results['Realtime Currency Exchange Rate']['5. Exchange Rate'] +
-                    ' ' + results['Realtime Currency Exchange Rate']['4. To_Currency Name']
-                ));
+                  '<div>' + currencyVal + " " + results['Realtime Currency Exchange Rate']['2. From_Currency Name'] +
+                  " is equal to " + currencyVal * results['Realtime Currency Exchange Rate']['5. Exchange Rate'] +
+                  ' ' + results['Realtime Currency Exchange Rate']['4. To_Currency Name'] +
+                  '</div>').addClass('alert alert-info text-center')
+                );
             });
+
 
             searchTerm.bind("input", () => searchButton.prop("disabled", !searchTerm.val()));
         }

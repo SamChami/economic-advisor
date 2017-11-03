@@ -11,10 +11,29 @@
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   </head>
   <header>
-    <div class="col"><h3>Financial Helper</h3></div>
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-3" id="title">Financial Watch</h1>
+        <p class="lead" id="title-description">It's like Bloomberg but cooler!</p>
+      </div>
+    </div>
   </header>
   <body>
     <style>
+      .jumbotron {
+        padding: 0.5em 0.6em;
+        background-image: url(http://www.enqwest.com/wp-content/uploads/2015/02/Office_Blur.png);
+        background-size: cover;
+      }
+      #title {
+        padding-left: 20px;
+        font-size: 64px;
+      }
+
+      #title-description {
+        padding-left: 20px;
+      }
+
       .flexbox {
       padding-left: 5px;
       padding-right: 5px;
@@ -23,10 +42,14 @@
         padding-left: 30px;
         padding-right: 30px;
       }
+      .form-inline {
+        padding-bottom: 10px;
+      }
     </style>
+
     <div class="container">
       <div class="form-group mt-3">
-        <h4 for="search-term">Enter a search term</h4>
+        <h4 for="search-term">Enter a Ticker Symbol</h4>
         <input type="text" class="form-control" id="search-term">
       </div>
       <div class="d-flex justify-content-start align-items-center">
@@ -35,7 +58,7 @@
         </div>
         <div class="form-check flexbox">
           <label class="form-check-label">
-            <input class="form-check-input" type="radio" name="radio-group" value="&function=TIME_SERIES_" checked>
+            <input class="form-check-input" type="radio" name="radio-group" value="&function=TIME_SERIES_" checked="checked">
             Stock
           </label>
           <label class="form-check-label">
@@ -52,7 +75,7 @@
         </div>
       </div>
 
-      <div id="graph" style="width:900px;height:250px;">
+      <div id="graph" style="width:700px;height:250px;">
       </div>
     </div>
 
@@ -63,11 +86,11 @@
         Compare Currencies
       </h4>
       <div class="form-inline">
-        <div class="form-group mx-sm-2">
+        <div class="form-group mx-sm-2 flexbox">
           <label for="currency_amount" class="sr-only">Amount</label>
           <input class="form-control" id="currency_amount" placeholder="Amount">
         </div>
-        <select name="currency_code1" id="currency_drop1">
+        <select class= "form-control flexbox" name="currency_code1" id="currency_drop1">
     		  <option value="AUD">Australian Dollar</option>
     		  <option value="BRL">Brazilian Real </option>
     		  <option value="CAD">Canadian Dollar</option>
@@ -101,8 +124,10 @@
           <option value="XRP">Ripple</option>
           <option value="DOGE">Dogecoin</option>
         </select>
+        <div class="flexbox">
           to
-        <select name="currency_code2" id="currency_drop2">
+        </div>
+        <select class= "form-control flexbox" name="currency_code2" id="currency_drop2">
     		  <option value="AUD">Australian Dollar</option>
     		  <option value="BRL">Brazilian Real </option>
     		  <option value="CAD">Canadian Dollar</option>
@@ -136,7 +161,9 @@
           <option value="XRP">Ripple</option>
           <option value="DOGE">Dogecoin</option>
         </select>
-        <button id="currency-button" class="btn btn-primary">Search</button>
+        <div class="flexbox">
+          <button class="btn btn-primary" id="currency-button">Search</button>
+        </div>
       </div>
       <div id="currency-spot">
       </div>
