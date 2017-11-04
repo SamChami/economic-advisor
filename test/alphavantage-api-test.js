@@ -39,7 +39,6 @@ describe("Alpha search", () => {
 
     describe("API calls - Stock Graphs", () => {
         var request;
-
         beforeEach(() => {
             jasmine.Ajax.install();
 
@@ -47,7 +46,6 @@ describe("Alpha search", () => {
             $("input[name='radio-group']:checked").val();
             $('#FormControlSelect :selected').val();
             $("#graph-button").click();
-
             request = jasmine.Ajax.requests.mostRecent();
         });
 
@@ -63,8 +61,6 @@ describe("Alpha search", () => {
 
         it("should populate the graph container when search results arrive", () => {
             expect($("#graph").children().length).toBe(0);
-
-            // Needs to check if graph is populated and with what
             request.respondWith({
                 status: 200,
                 responseText: JSON.stringify({
@@ -86,8 +82,7 @@ describe("Alpha search", () => {
                         }
                     }
                 })
-            }).toBe(true);
-
+            });
             expect($("#graph").children().length).toBe(1);
         });
     });
@@ -102,6 +97,7 @@ describe("Alpha search", () => {
             $("#currency_amount").val();
             $("#currency-button").click();
             $("#currency-spot").val();
+            window.AlphaSearchController.init();
 
             request = jasmine.Ajax.requests.mostRecent();
         });
@@ -122,11 +118,11 @@ describe("Alpha search", () => {
                         "3. To_Currency Code": "EUR",
                         "4. To_Currency Name": "Euro",
                         "5. Exchange Rate": "0.86151200",
-                        "6. Last Refreshed": "2017-11-03 23:15:00",
+                        "6. Last Refreshed": "2017-11-04 01:48:02",
                         "7. Time Zone": "UTC"
                     }
                 })
-            }).toBe(true);
+            });
             expect($("#currency-spot").children().length).toBe(1);
         });
 
