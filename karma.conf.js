@@ -9,6 +9,7 @@ module.exports = function (config) {
 
     files: [
       "https://code.jquery.com/jquery-1.11.3.min.js",
+      "https://cdn.plot.ly/plotly-latest.min.js",
       "*.js",
       "test/**/*.js",
       "test/**/*.html"
