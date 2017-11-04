@@ -101,6 +101,7 @@ describe("Alpha search", () => {
             $('#currency_drop2 :selected').val();
             $("#currency_amount").val();
             $("#currency-button").click();
+            $("#currency-spot").val();
 
             request = jasmine.Ajax.requests.mostRecent();
         });
@@ -111,9 +112,10 @@ describe("Alpha search", () => {
         });
 
         it("should populate the container under the search the with an currency alert", () => {
+            expect($("#currency-spot").children().length).toBe(0);
             request.respondWith({
                 status: 200,
-                responseText: {
+                responseText: JSON.stringify({
                     "Realtime Currency Exchange Rate": {
                         "1. From_Currency Code": "USD",
                         "2. From_Currency Name": "United States Dollar",
@@ -123,8 +125,9 @@ describe("Alpha search", () => {
                         "6. Last Refreshed": "2017-11-03 23:15:00",
                         "7. Time Zone": "UTC"
                     }
-                }
+                })
             }).toBe(true);
+            expect($("#currency-spot").children().length).toBe(1);
         });
 
         afterEach(() => {
