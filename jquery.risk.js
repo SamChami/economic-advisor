@@ -20,7 +20,7 @@
             right = $('#slider-rectangle-right-bound').position().left;
             if ($current) {
                 colorCode = 255 * $current.data('mousePosition') / (right - 10);
-                colorRGB = `rgba(${colorCode}, ${Math.abs(255 - colorCode)}, 0, 0.5)`;
+                colorRGB = `rgba(${Math.round(colorCode)}, ${Math.round(Math.abs(255 - colorCode))}, 0, 0.5)`;
                 riskMeter = colorCode > 170 ? "High Risk" : colorCode > 85 ? "Medium Risk" : "Low Risk";
                 $current.css({
                     'opacity': '0.5',
