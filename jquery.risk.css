@@ -1,0 +1,29 @@
+.risk {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+
+.risk-this {
+    width: 200px;
+    background-color: blue;
+}
+
+#slider-button {
+    width: 20px;
+    height: 20px;
+    background-color: rgb(128, 128, 128);
+    border: solid 1px black;
+}
+
+#slider-rectangle{
+    width: 50%;
+    background: linear-gradient(to right, green,yellow,FireBrick);
+    border: solid 1px black;
+    position: relative;
+
+}
+
+#slider-rectangle-right-bound{
+    width: 1px;
+    float: right
+}

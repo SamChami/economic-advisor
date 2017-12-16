@@ -56,6 +56,12 @@
                 );
             });
 
+            $(".risk-this").risk({
+                change: function (color, risk) {
+                    $("#riskStatus").empty().append(risk).addClass('alert alert-danger text-center');
+                }
+            });
+
 
             searchTerm.bind("input", () => searchButton.prop("disabled", !searchTerm.val()));
         }
