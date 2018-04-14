@@ -8,16 +8,27 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
       integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-    <link rel="stylesheet" href="jquery.risk.css">
+    <!-- <link rel="stylesheet" href="jquery.risk.css"> -->
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   </head>
   <header>
     <div class="jumbotron jumbotron-fluid">
       <div class="container">
         <h1 class="display-3" id="title">Financial Watch</h1>
-        <p class="lead" id="title-description">It's like Bloomberg but cooler!</p>
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" id="news-tab" data-toggle="tab" href="#news" role="tab" aria-controls="news" aria-selected="true">News</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="stocks-tab" data-toggle="tab" href="#stocks" role="tab" aria-controls="stocks" aria-selected="false">Graphs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="forex-tab" data-toggle="tab" href="#forex" role="tab" aria-controls="forex" aria-selected="false">Foreign Exchange</a>
+          </li>
+        </ul>
       </div>
     </div>
+
   </header>
   <body>
     <style>
@@ -47,138 +58,150 @@
         padding-bottom: 10px;
       }
     </style>
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active" id="news" role="tabpanel" aria-labelledby="news-tab">1s..</div>
+      <div class="tab-pane fade" id="stocks" role="tabpanel" aria-labelledby="stocks-tab">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group mt-3">
+                <h4 for="search-term">Enter a Ticker Symbol</h4>
+                <input type="text" class="form-control" id="search-term">
+              </div>
+              <div class="d-flex justify-content-start align-items-center">
+                <div class="form-group flexbox">
+                  <button id="graph-button" class="btn btn-primary" disabled>Search</button>
+                </div>
+                <div class="form-check flexbox">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="radio" name="radio-group" value="&function=TIME_SERIES_" checked="checked">
+                    Stock
+                  </label>
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="radio" name="radio-group" value="&market=USD&function=DIGITAL_CURRENCY_">
+                    Crypto Currency
+                  </label>
+                </div>
+                <div class="form-group flexbox">
+                  <select class="form-control" id="FormControlSelect">
+                    <option value="DAILY">Daily Close Prices</option>
+                    <option value="WEEKLY">Weekly Close Prices</option>
+                    <option value="MONTHLY">Monthly Close Prices</option>
+                  </select>
+                </div>
+              </div>
+              <!-- <div>
+                <div class="d-flex">
+                  <div class="flexbox" id="slider-rectangle">
+                    <div class="flexbox" id="slider-rectangle-right-bound"> </div>
+                  </div>
+                </div>
+              </div> -->
+            </diV>
+            <div class="col-md-6">
+              nigga
+            </div>
+          <div id="graph" style="width:100%;height:100%;">
+          </div>
+        </div>
+      </div>
+      </div>
 
-    <div class="container">
-      <div class="form-group mt-3">
-        <h4 for="search-term">Enter a Ticker Symbol</h4>
-        <input type="text" class="form-control" id="search-term">
-      </div>
-      <div class="d-flex justify-content-start align-items-center">
-        <div class="form-group flexbox">
-          <button id="graph-button" class="btn btn-primary" disabled>Search</button>
-        </div>
-        <div class="form-check flexbox">
-          <label class="form-check-label">
-            <input class="form-check-input" type="radio" name="radio-group" value="&function=TIME_SERIES_" checked="checked">
-            Stock
-          </label>
-          <label class="form-check-label">
-            <input class="form-check-input" type="radio" name="radio-group" value="&market=USD&function=DIGITAL_CURRENCY_">
-            Crypto Currency
-          </label>
-        </div>
-        <div class="form-group flexbox">
-          <select class="form-control" id="FormControlSelect">
-            <option value="DAILY">Daily Close Prices</option>
-            <option value="WEEKLY">Weekly Close Prices</option>
-            <option value="MONTHLY">Monthly Close Prices</option>
-          </select>
-        </div>
-        <div class="flexbox" id="riskStatus">
-        </div>
-      </div>
-      <div>
-          <div class="d-flex">
-            <div class="flexbox" id="slider-rectangle">
-              <div class="risk-this" id="slider-button"> </div>
-              <div class="flexbox" id="slider-rectangle-right-bound"> </div>
+      <div class="tab-pane fade" id="forex" role="tabpanel" aria-labelledby="forex-tab">
+        <div class="container">
+          <h4>
+            Compare Currencies
+          </h4>
+          <div class="form-inline">
+            <div class="form-group mx-sm-2 flexbox">
+              <label for="currency_amount" class="sr-only">Amount</label>
+              <input class="form-control" id="currency_amount" placeholder="Amount">
+            </div>
+            <select class= "form-control flexbox" name="currency_code1" id="currency_drop1">
+              <option value="AUD">Australian Dollar</option>
+              <option value="BRL">Brazilian Real </option>
+              <option value="CAD">Canadian Dollar</option>
+              <option value="CZK">Czech Koruna</option>
+              <option value="DKK">Danish Krone</option>
+              <option value="EUR">Euro</option>
+              <option value="HKD">Hong Kong Dollar</option>
+              <option value="HUF">Hungarian Forint </option>
+              <option value="ILS">Israeli New Sheqel</option>
+              <option value="JPY">Japanese Yen</option>
+              <option value="MYR">Malaysian Ringgit</option>
+              <option value="MXN">Mexican Peso</option>
+              <option value="NOK">Norwegian Krone</option>
+              <option value="NZD">New Zealand Dollar</option>
+              <option value="PHP">Philippine Peso</option>
+              <option value="PLN">Polish Zloty</option>
+              <option value="GBP">Pound Sterling</option>
+              <option value="SGD">Singapore Dollar</option>
+              <option value="ZAR">South African Rand</option>
+              <option value="SEK">Swedish Krona</option>
+              <option value="CHF">Swiss Franc</option>
+              <option value="TWD">Taiwan New Dollar</option>
+              <option value="THB">Thai Baht</option>
+              <option value="TRY">Turkish Lira</option>
+              <option value="USD" SELECTED="YES">U.S. Dollar</option>
+              <option disabled>-----------</option>
+              <option value="BTC">Bitcoin</option>
+              <option value="LTC">Litecoin</option>
+              <option value="ETH">Ethereum</option>
+              <option value="ZEC">Zcash</option>
+              <option value="XRP">Ripple</option>
+              <option value="DOGE">Dogecoin</option>
+            </select>
+            <div class="flexbox">
+              to
+            </div>
+            <select class= "form-control flexbox" name="currency_code2" id="currency_drop2">
+              <option value="AUD">Australian Dollar</option>
+              <option value="BRL">Brazilian Real </option>
+              <option value="CAD">Canadian Dollar</option>
+              <option value="CZK">Czech Koruna</option>
+              <option value="DKK">Danish Krone</option>
+              <option value="EUR" SELECTED="YES">Euro</option>
+              <option value="HKD">Hong Kong Dollar</option>
+              <option value="HUF">Hungarian Forint </option>
+              <option value="ILS">Israeli New Sheqel</option>
+              <option value="JPY">Japanese Yen</option>
+              <option value="MYR">Malaysian Ringgit</option>
+              <option value="MXN">Mexican Peso</option>
+              <option value="NOK">Norwegian Krone</option>
+              <option value="NZD">New Zealand Dollar</option>
+              <option value="PHP">Philippine Peso</option>
+              <option value="PLN">Polish Zloty</option>
+              <option value="GBP">Pound Sterling</option>
+              <option value="SGD">Singapore Dollar</option>
+              <option value="ZAR">South African Rand</option>
+              <option value="SEK">Swedish Krona</option>
+              <option value="CHF">Swiss Franc</option>
+              <option value="TWD">Taiwan New Dollar</option>
+              <option value="THB">Thai Baht</option>
+              <option value="TRY">Turkish Lira</option>
+              <option value="USD">U.S. Dollar</option>
+              <option disabled>-----------</option>
+              <option value="BTC">Bitcoin</option>
+              <option value="LTC">Litecoin</option>
+              <option value="ETH">Ethereum</option>
+              <option value="ZEC">Zcash</option>
+              <option value="XRP">Ripple</option>
+              <option value="DOGE">Dogecoin</option>
+            </select>
+            <div class="flexbox">
+              <button class="btn btn-primary" id="currency-button">Search</button>
+              <button class="btn btn-secondary" id="clear-button">Clear Contents</button>
+
             </div>
           </div>
-      </div>
+          <div id="currency-spot">
+          </div>
+        </div>
 
-      <div id="graph" style="width:700px;height:250px;">
       </div>
     </div>
 
-    <hr>
 
-    <div class="container">
-      <h4>
-        Compare Currencies
-      </h4>
-      <div class="form-inline">
-        <div class="form-group mx-sm-2 flexbox">
-          <label for="currency_amount" class="sr-only">Amount</label>
-          <input class="form-control" id="currency_amount" placeholder="Amount">
-        </div>
-        <select class= "form-control flexbox" name="currency_code1" id="currency_drop1">
-    		  <option value="AUD">Australian Dollar</option>
-    		  <option value="BRL">Brazilian Real </option>
-    		  <option value="CAD">Canadian Dollar</option>
-    		  <option value="CZK">Czech Koruna</option>
-    		  <option value="DKK">Danish Krone</option>
-    		  <option value="EUR">Euro</option>
-    		  <option value="HKD">Hong Kong Dollar</option>
-    		  <option value="HUF">Hungarian Forint </option>
-    		  <option value="ILS">Israeli New Sheqel</option>
-    		  <option value="JPY">Japanese Yen</option>
-    		  <option value="MYR">Malaysian Ringgit</option>
-    		  <option value="MXN">Mexican Peso</option>
-    		  <option value="NOK">Norwegian Krone</option>
-    		  <option value="NZD">New Zealand Dollar</option>
-    		  <option value="PHP">Philippine Peso</option>
-    		  <option value="PLN">Polish Zloty</option>
-    		  <option value="GBP">Pound Sterling</option>
-    		  <option value="SGD">Singapore Dollar</option>
-          <option value="ZAR">South African Rand</option>
-    		  <option value="SEK">Swedish Krona</option>
-    		  <option value="CHF">Swiss Franc</option>
-    		  <option value="TWD">Taiwan New Dollar</option>
-    		  <option value="THB">Thai Baht</option>
-    		  <option value="TRY">Turkish Lira</option>
-    		  <option value="USD" SELECTED="YES">U.S. Dollar</option>
-          <option disabled>-----------</option>
-          <option value="BTC">Bitcoin</option>
-          <option value="LTC">Litecoin</option>
-          <option value="ETH">Ethereum</option>
-          <option value="ZEC">Zcash</option>
-          <option value="XRP">Ripple</option>
-          <option value="DOGE">Dogecoin</option>
-        </select>
-        <div class="flexbox">
-          to
-        </div>
-        <select class= "form-control flexbox" name="currency_code2" id="currency_drop2">
-    		  <option value="AUD">Australian Dollar</option>
-    		  <option value="BRL">Brazilian Real </option>
-    		  <option value="CAD">Canadian Dollar</option>
-    		  <option value="CZK">Czech Koruna</option>
-    		  <option value="DKK">Danish Krone</option>
-    		  <option value="EUR" SELECTED="YES">Euro</option>
-    		  <option value="HKD">Hong Kong Dollar</option>
-    		  <option value="HUF">Hungarian Forint </option>
-    		  <option value="ILS">Israeli New Sheqel</option>
-    		  <option value="JPY">Japanese Yen</option>
-    		  <option value="MYR">Malaysian Ringgit</option>
-    		  <option value="MXN">Mexican Peso</option>
-    		  <option value="NOK">Norwegian Krone</option>
-    		  <option value="NZD">New Zealand Dollar</option>
-    		  <option value="PHP">Philippine Peso</option>
-    		  <option value="PLN">Polish Zloty</option>
-    		  <option value="GBP">Pound Sterling</option>
-    		  <option value="SGD">Singapore Dollar</option>
-          <option value="ZAR">South African Rand</option>
-    		  <option value="SEK">Swedish Krona</option>
-    		  <option value="CHF">Swiss Franc</option>
-    		  <option value="TWD">Taiwan New Dollar</option>
-    		  <option value="THB">Thai Baht</option>
-    		  <option value="TRY">Turkish Lira</option>
-    		  <option value="USD">U.S. Dollar</option>
-          <option disabled>-----------</option>
-          <option value="BTC">Bitcoin</option>
-          <option value="LTC">Litecoin</option>
-          <option value="ETH">Ethereum</option>
-          <option value="ZEC">Zcash</option>
-          <option value="XRP">Ripple</option>
-          <option value="DOGE">Dogecoin</option>
-        </select>
-        <div class="flexbox">
-          <button class="btn btn-primary" id="currency-button">Search</button>
-        </div>
-      </div>
-      <div id="currency-spot">
-      </div>
-    </div>
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"
       integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>

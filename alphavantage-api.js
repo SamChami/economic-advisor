@@ -9,6 +9,7 @@
             let resultGraph = $("#graph");
             let currencyButton = $("#currency-button");
             let currencyHolder = $("#currency-spot");
+            let clearButton = $("#clear-button");
             let url;
             searchButton.click(() => {
                 let searchParam = $("input[name='radio-group']:checked");
@@ -34,8 +35,23 @@
                                 type: 'scatter'
                             }
                         ];
+                        let layout = {
+                            autosize: false,
+                            width: 500,
+                            height: 500,
+                            margin: {
+                                l: 30,
+                                r: 0,
+                                b: 25,
+                                t: 0,
+                                pad: 4
+                            },
+                            paper_bgcolor: '#e8e8e8',
+                            plot_bgcolor: '#ffffff'
+                        };
+
                         resultGraph.empty();
-                        Plotly.newPlot('graph', data);
+                        Plotly.newPlot('graph', data, layout);
                         // This is not defined because Plotly.js is not loaded from HTML yet
                     } else {
                         resultGraph.empty().append("Error! Please Enter a Correct Ticker.");
@@ -48,7 +64,7 @@
                 const dropdown2 = $('#currency_drop2 :selected').val();
                 url = `https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE
 &from_currency=${dropdown1}&to_currency=${dropdown2}&apikey=ZJF5RAKQ4SUSZMR4`;
-                $.getJSON(url).done(results => currencyHolder.empty().append(
+                $.getJSON(url).done(results => currencyHolder.prepend(
                   '<div>' + currencyVal + " " + results['Realtime Currency Exchange Rate']['2. From_Currency Name'] +
                   " is equal to " + currencyVal * results['Realtime Currency Exchange Rate']['5. Exchange Rate'] +
                   ' ' + results['Realtime Currency Exchange Rate']['4. To_Currency Name'] +
@@ -62,6 +78,9 @@
                 }
             });
 
+            clearButton.click(() => {
+                currencyHolder.empty().removeClass();
+            });
 
             searchTerm.bind("input", () => searchButton.prop("disabled", !searchTerm.val()));
         }
