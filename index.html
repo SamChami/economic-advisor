@@ -33,7 +33,7 @@
   <body>
     <style>
       .jumbotron {
-        padding: 0.5em 0.6em;
+        padding: 0em;
         background-image: url(http://www.enqwest.com/wp-content/uploads/2015/02/Office_Blur.png);
         background-size: cover;
       }
@@ -57,9 +57,23 @@
       .form-inline {
         padding-bottom: 10px;
       }
+      .newsHeadline {
+        style="height:300px;
+        text-align: center;
+        width:300px;
+        color:white;
+        vertical-align: middle;
+        line-height: 300px;
+        background-size:cover;
+      }
     </style>
     <div class="tab-content" id="myTabContent">
-      <div class="tab-pane fade show active" id="news" role="tabpanel" aria-labelledby="news-tab">1s..</div>
+      <div class="tab-pane fade show active" id="news" role="tabpanel" aria-labelledby="news-tab">
+        <div class="container">
+          <div class="row" id="news-space">
+          </div>
+        </div>
+      </div>
       <div class="tab-pane fade" id="stocks" role="tabpanel" aria-labelledby="stocks-tab">
         <div class="container">
           <div class="row">
@@ -90,6 +104,10 @@
                   </select>
                 </div>
               </div>
+
+              <div id="info-box">
+              </div>
+
               <!-- <div>
                 <div class="d-flex">
                   <div class="flexbox" id="slider-rectangle">
@@ -97,11 +115,11 @@
                   </div>
                 </div>
               </div> -->
-            </diV>
-            <div class="col-md-6">
-              nigga
+
             </div>
-          <div id="graph" style="width:100%;height:100%;">
+            <div class="col-md-6">
+              <div id="graph" style="width:100%;height:100%;">
+            </div>
           </div>
         </div>
       </div>
@@ -109,11 +127,11 @@
 
       <div class="tab-pane fade" id="forex" role="tabpanel" aria-labelledby="forex-tab">
         <div class="container">
-          <h4>
-            Compare Currencies
-          </h4>
           <div class="form-inline">
             <div class="form-group mx-sm-2 flexbox">
+              <h4 style="padding-right:1em">
+                Compare Currencies
+              </h4>
               <label for="currency_amount" class="sr-only">Amount</label>
               <input class="form-control" id="currency_amount" placeholder="Amount">
             </div>
@@ -151,7 +169,7 @@
               <option value="XRP">Ripple</option>
               <option value="DOGE">Dogecoin</option>
             </select>
-            <div class="flexbox">
+            <div class="flexbox" style="padding:0.3em">
               to
             </div>
             <select class= "form-control flexbox" name="currency_code2" id="currency_drop2">
@@ -216,9 +234,6 @@
 
     <script src="jquery.risk.js"></script>
     <script src="alphavantage-api.js"></script>
-
-    <script src="plugin-demo.js"></script>
-
 
     <script>window.AlphaSearchController.init()</script>
 

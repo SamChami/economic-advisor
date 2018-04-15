@@ -10,7 +10,26 @@
             let currencyButton = $("#currency-button");
             let currencyHolder = $("#currency-spot");
             let clearButton = $("#clear-button");
-            let url;
+            let newsSpace = $("#news-space");
+            let url = 'https://newsapi.org/v2/top-headlines?' +
+                  'sources=bbc-news&' +
+                  'apiKey=06eefc5cf15f43ca8311e178202c8cd1';
+
+            $.getJSON(url).done(results => {
+
+                for (let i = 0; i < results['totalResults']; i++) {
+                    newsSpace.append(`<div
+                    class="col-md-6 newsHeadline"
+                    style="background-image:url(${results['articles'][i]['urlToImage']});>
+                    ${results['articles'][i]['title']}
+                    </div>`);
+                }
+
+            });
+
+
+
+
             searchButton.click(() => {
                 let searchParam = $("input[name='radio-group']:checked");
                 let searchInterval = $('#FormControlSelect :selected');
@@ -36,7 +55,7 @@
                             }
                         ];
                         let layout = {
-                            autosize: false,
+                            autosize: true,
                             width: 500,
                             height: 500,
                             margin: {
