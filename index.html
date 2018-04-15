@@ -35,19 +35,28 @@
   <body>
     <style>
       .newsHeadline {
-        height:300px;
-        width:300px;
+        height: 6em;
+        width: 100%;
+
         color:white;
         font-size: 3em;
         background-size:cover;
-        backroun
+        background-color:grey;
       }
+      .opaque-para {
+        background-color: rgba(0, 0, 0, 0.3);
+        height: 100%;
+        width: 100%;
+      }
+
     </style>
     <div class="tab-content" id="myTabContent">
       <div class="tab-pane fade show active" id="news" role="tabpanel" aria-labelledby="news-tab">
         <div class="container">
-          <div class="row overlay" id="news-space">
+          <div class="row" id="news-space">
           </div>
+          <p class="text-right">Bloomberg articles displayed using
+          <a href="https://newsapi.org/">NewsAPI</a>.
         </div>
       </div>
       <div class="tab-pane fade" id="stocks" role="tabpanel" aria-labelledby="stocks-tab">

@@ -18,10 +18,9 @@
             $.getJSON(url).done(results => {
 
                 for (let i = 0; i < results['totalResults']; i++) {
-                    newsSpace.append(`<p class="col-sm-6 newsHeadline"
+                    newsSpace.append(`<div class="col-sm-6"> <div class="newsHeadline"
                     style="background-image:url(${results['articles'][i]['urlToImage']});">
-                    ${results['articles'][i]['title']}
-                    </p>`);
+                    <div class="opaque-para">${results['articles'][i]['title']}</div></div></div>`);
                 }
 
             });
