@@ -18,15 +18,15 @@
             $.getJSON(url).done(results => {
 
                 for (let i = 0; i < results['totalResults']; i++) {
-                    newsSpace.append(`<div class="col-sm-6"> <div class="newsHeadline"
-                    style="background-image:url(${results['articles'][i]['urlToImage']});">
-                    <div class="opaque-para">${results['articles'][i]['title']}</div></div></div>`);
+                    newsSpace.append(
+                    `<a href="${results['articles'][i]['url']}" target="_blank" class="col-sm-6"
+                    style="text-decoration:none; margin-bottom:1em">
+                      <div class="newsHeadline" style="background-image:url(${results['articles'][i]['urlToImage']});">
+                        <div class="opaque-para">${results['articles'][i]['title']}</div>
+                        </div>
+                    </a>`);
                 }
-
             });
-
-
-
 
             searchButton.click(() => {
                 let searchParam = $("input[name='radio-group']:checked");
@@ -82,10 +82,11 @@
                 url = `https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE
 &from_currency=${dropdown1}&to_currency=${dropdown2}&apikey=ZJF5RAKQ4SUSZMR4`;
                 $.getJSON(url).done(results => currencyHolder.prepend(
-                  '<div>' + currencyVal + " " + results['Realtime Currency Exchange Rate']['2. From_Currency Name'] +
+                  '<div class="alert alert-info text-center">' + currencyVal + " " +
+                  results['Realtime Currency Exchange Rate']['2. From_Currency Name'] +
                   " is equal to " + currencyVal * results['Realtime Currency Exchange Rate']['5. Exchange Rate'] +
                   ' ' + results['Realtime Currency Exchange Rate']['4. To_Currency Name'] +
-                  '</div>').addClass('alert alert-info text-center')
+                  '</div>')
                 );
             });
 
