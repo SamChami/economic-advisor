@@ -98,12 +98,6 @@
                 );
             });
 
-            $(".risk-this").risk({
-                change: function (color, risk) {
-                    $("#riskStatus").empty().append(risk).addClass('alert alert-danger text-center');
-                }
-            });
-
             clearButton.click(() => {
                 currencyHolder.empty().removeClass();
             });
