@@ -3,7 +3,7 @@
 
 # Description
 
-This application takes the [Alphavantage API](https://www.alphavantage.co/) and [Plotly.js](https://plot.ly/) to gracefully diplay information about stock and currency.
+This application takes the [Alphavantage API](https://www.alphavantage.co/) and [Plotly.js](https://plot.ly/) to gracefully display information about stock and currency, as well as displays relevant Bloomberg news using the [News API](https://newsapi.org)
 
 To run the application, you can use your localhost:8000 by running the following:
 
@@ -18,3 +18,5 @@ Python 3
 $ npm install
 $ npm test
 ```
+
+Note that currently, Navs in Bootstrap 4 sometimes act strangely with heavy JavaScript use within the tabs.
