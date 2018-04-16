@@ -7,6 +7,7 @@
             let searchButton = $("#graph-button");
             let searchTerm = $("#search-term");
             let resultGraph = $("#graph");
+            let infoBox = $("#info-box");
             let currencyButton = $("#currency-button");
             let currencyHolder = $("#currency-spot");
             let clearButton = $("#clear-button");
@@ -41,6 +42,13 @@
                         const propName = searchParam.val() === '&function=TIME_SERIES_' ? '4. close' : '4a. close (USD)';
                         let xValues = Object.keys(results[objName]);
                         let yValues = [];
+                        const closingVal = results[objName][xValues[0]][propName];
+                        infoBox.empty().append(`<div>Close Price on
+                        ${Object.keys(results[objName])[0]}: $${Math.round(100 * closingVal) / 100}</div>
+                        <br>
+                        <p>Graph data provided by
+                        <a href="https://www.alphavantage.co/" target="_blank">Alphavantage.</a></p>
+                        `);
 
                         for (let i in xValues) {
                             yValues.push(results[objName][xValues[i]][propName]);

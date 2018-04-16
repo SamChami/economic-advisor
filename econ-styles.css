@@ -23,3 +23,11 @@ padding-right: 5px;
 .form-inline {
   padding-bottom: 10px;
 }
+
+.nav-link {
+  color: black;
+}
+
+#info-box {
+  padding-top: 80px;
+}
