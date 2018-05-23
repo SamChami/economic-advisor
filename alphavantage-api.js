@@ -20,12 +20,15 @@
 
                 for (let i = 0; i < results['totalResults']; i++) {
                     newsSpace.append(
-                    `<a href="${results['articles'][i]['url']}" target="_blank" class="col-sm-6"
-                    style="text-decoration:none; margin-bottom:1em">
-                      <div class="newsHeadline" style="background-image:url(${results['articles'][i]['urlToImage']});">
-                        <div class="opaque-para">${results['articles'][i]['title']}</div>
+                    `<a href="${results['articles'][i]['url']}" target="_blank" class="col-sm-6 mx-auto"
+                    style="text-decoration:none;
+                    margin-bottom:1em; background-image:url(${results['articles'][i]['urlToImage']});
+                    height:300px; background-size:cover;" id="box_${i}">
+                      <div class="overlay">
+                        <p class="text">${results['articles'][i]['title']}</p>
                         </div>
                     </a>`);
+
                 }
             });
 

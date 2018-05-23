@@ -31,3 +31,74 @@ padding-right: 5px;
 #info-box {
   padding-top: 80px;
 }
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+}
+
+#box_0:hover .overlay {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+#box_1:hover .overlay {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+#box_2:hover .overlay {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+#box_3:hover .overlay {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+#box_4:hover .overlay {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+#box_5:hover .overlay {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+#box_6:hover .overlay {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+#box_7:hover .overlay {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+#box_8:hover .overlay {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+#box_9:hover .overlay {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
