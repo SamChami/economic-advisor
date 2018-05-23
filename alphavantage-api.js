@@ -24,8 +24,9 @@
                     style="text-decoration:none;
                     margin-bottom:1em; background-image:url(${results['articles'][i]['urlToImage']});
                     height:300px; background-size:cover;" id="box_${i}">
+                      <h1 class="">${results['articles'][i]['title']}</h1>
                       <div class="overlay">
-                        <p class="text">${results['articles'][i]['title']}</p>
+                        <p class="text">${results['articles'][i]['description']}</p>
                         </div>
                     </a>`);
 
