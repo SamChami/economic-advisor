@@ -29,7 +29,7 @@
                       ), url(${results['articles'][i]['urlToImage']});
                     height:300px; background-size:cover;
                     " id="box_${i}">
-                      <h1 class="">${results['articles'][i]['title']}</h1>
+                      <h2 class="">${results['articles'][i]['title']}</h2>
                       <div class="overlay">
                         <p class="text">${results['articles'][i]['description']}</p>
                         </div>
