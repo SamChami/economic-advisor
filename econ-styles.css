@@ -41,56 +41,47 @@ padding-right: 5px;
   height: 100%;
   width: 100%;
   opacity: 0;
+  background-color: rgb(0, 0, 0);
   transition: .5s ease;
 }
 
 #box_0:hover .overlay {
     opacity: 1;
-    background-color: rgba(0, 0, 0, 0.7);
 }
 
 #box_1:hover .overlay {
     opacity: 1;
-    background-color: rgba(0, 0, 0, 0.7);
 }
 
 #box_2:hover .overlay {
     opacity: 1;
-    background-color: rgba(0, 0, 0, 0.7);
 }
 
 #box_3:hover .overlay {
     opacity: 1;
-    background-color: rgba(0, 0, 0, 0.7);
 }
 
 #box_4:hover .overlay {
     opacity: 1;
-    background-color: rgba(0, 0, 0, 0.7);
 }
 
 #box_5:hover .overlay {
     opacity: 1;
-    background-color: rgba(0, 0, 0, 0.7);
 }
 
 #box_6:hover .overlay {
     opacity: 1;
-    background-color: rgba(0, 0, 0, 0.7);
 }
 
 #box_7:hover .overlay {
     opacity: 1;
-    background-color: rgba(0, 0, 0, 0.7);
 }
 
 #box_8:hover .overlay {
     opacity: 1;
-    background-color: rgba(0, 0, 0, 0.7);
 }
 #box_9:hover .overlay {
     opacity: 1;
-    background-color: rgba(0, 0, 0, 0.7);
 }
 
 .text {

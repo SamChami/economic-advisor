@@ -17,13 +17,18 @@
                   'apiKey=06eefc5cf15f43ca8311e178202c8cd1';
 
             $.getJSON(url).done(results => {
-
                 for (let i = 0; i < results['totalResults']; i++) {
                     newsSpace.append(
-                    `<a href="${results['articles'][i]['url']}" target="_blank" class="col-sm-6 mx-auto"
+                    `<a href="${results['articles'][i]['url']}" target="_blank" class="col-sm-5 mx-auto"
                     style="text-decoration:none;
-                    margin-bottom:1em; background-image:url(${results['articles'][i]['urlToImage']});
-                    height:300px; background-size:cover;" id="box_${i}">
+                    margin:1em !important;
+                    background:
+                      linear-gradient(
+                        rgba(0, 0, 0, 0.4),
+                        rgba(0, 0, 0, 0.4)
+                      ), url(${results['articles'][i]['urlToImage']});
+                    height:300px; background-size:cover;
+                    " id="box_${i}">
                       <h1 class="">${results['articles'][i]['title']}</h1>
                       <div class="overlay">
                         <p class="text">${results['articles'][i]['description']}</p>
